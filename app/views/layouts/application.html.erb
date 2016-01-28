@@ -27,6 +27,14 @@ data-target="#bs-example-navbar-collapse-1">
    </ul>
    <ul class="nav navbar-nav navbar-right">
     <li><%= link_to "Sign up", new_user_registration_path %></li>
+    <li><%= link_to "Sign in", new_user_session_path %></li>
+     <% if user_signed_in? %>
+       <div class="navbar-right">
+         <p class="navbar-text">
+         Signed in as <%= "#{current_user.email}" %>
+         </p>
+       </div>
+     <% end %>  
    </ul>
   </div>
 </div>
@@ -36,7 +44,7 @@ data-target="#bs-example-navbar-collapse-1">
  <% flash.each do |name, msg| %>
  <div class='alert alert-<%="#{name}" %>'>
    <a href='#' class='close' data-dismiss='alert' &#215;></a>
-   <%= conent_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+   <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
  </div>
  <% end %>
 <%= yield %>
