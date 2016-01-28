@@ -8,6 +8,7 @@ gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~>3.3.4.1'
 gem 'autoprefixer-rails', '~>5.2.0'
+gem 'devise', '~>3.5.1'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
