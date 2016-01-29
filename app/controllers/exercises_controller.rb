@@ -16,7 +16,7 @@ class ExercisesController < ApplicationController
     
     if @exercise.save
     flash[:success] = "Exercise has been created"
-    redirect_to user_exercise_path
+    redirect_to user_exercises_path(current_user)
     #[current_user, @exercise]
     
       
@@ -39,8 +39,7 @@ class ExercisesController < ApplicationController
   
     if @exercise.update(exercise_params)
       flash[:success] = "Exercise has been updated"
-      redirect_to user_exercises_path(current_user)
-      #[current_user, @exercise]
+      redirect_to [current_user, @exercise]
       
     else
       flash[:danger] = "Exercise has not been updated"
