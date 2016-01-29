@@ -39,7 +39,7 @@ class ExercisesController < ApplicationController
   
     if @exercise.update(exercise_params)
       flash[:success] = "Exercise has been updated"
-      redirect_to user_exercise_path(@exercise)
+      redirect_to user_exercises_path
       #[current_user, @exercise]
       
     else
