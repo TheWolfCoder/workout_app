@@ -16,7 +16,8 @@ class ExercisesController < ApplicationController
     
     if @exercise.save
     flash[:success] = "Exercise has been created"
-    redirect_to [current_user, @exercise]
+    redirect_to user_exercises_path(current_user)
+    #[current_user, @exercise]
     
       
     else
