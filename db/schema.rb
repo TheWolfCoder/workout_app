@@ -11,15 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160129094139) do
+ActiveRecord::Schema.define(version: 20160201034446) do
 
   create_table "exercises", force: :cascade do |t|
     t.integer  "duration_in_min"
     t.text     "workout"
     t.date     "workout_date"
     t.integer  "user_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "thumbs_up_total"
+    t.integer  "thumbs_down_total"
   end
 
   add_index "exercises", ["user_id"], name: "index_exercises_on_user_id"
@@ -33,6 +35,14 @@ ActiveRecord::Schema.define(version: 20160129094139) do
 
   add_index "friendships", ["friend_id"], name: "index_friendships_on_friend_id"
   add_index "friendships", ["user_id"], name: "index_friendships_on_user_id"
+
+  create_table "likes", force: :cascade do |t|
+    t.boolean  "like"
+    t.integer  "user_id"
+    t.integer  "exercise_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

@@ -29,4 +29,12 @@
 <div class="col-xs-12 col-md-10 member">
 <%= link_to "Back", user_exercises_path(current_user) %>
 </div>
+   <div class="pull-right"> 
+         <%= link_to like_user_exercise_path(@exercise.user_id, @exercise, like: true), method: :post do %> &nbsp <%= @exercise.thumbs_up_total %>
+            <icon class="glyphicon glyphicon-thumbs-up"/>
+         <% end %>
+         <%= link_to like_user_exercise_path(@exercise.user_id, @exercise, like: false), method: :post  do %> &nbsp <%= @exercise.thumbs_down_total %>
+            <icon class="glyphicon glyphicon-thumbs-down"/>
+         <% end %>
+      </div>
 </div>

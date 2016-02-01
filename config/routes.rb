@@ -3,8 +3,14 @@ Rails.application.routes.draw do
   get 'dashboard/index'
   
   resources :users do
-    resources :exercises
+    resources :exercises  do
+    member do
+      post 'like'
+    end
+   end  
   end
+  
+
   
   resource :dashboard, only: [:index] do
     collection do

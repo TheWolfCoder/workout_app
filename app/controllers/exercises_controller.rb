@@ -7,6 +7,17 @@ class ExercisesController < ApplicationController
     @friends = current_user.friends
   end
   
+  def like
+    like = Like.create(like: params[:like], user: current_user, exercise: @exercise)
+    if like.valid?
+       flash[:success] = "Your selection was successful!"
+       redirect_to :back
+    else
+       flash[:danger] = "You can only like/dislike recipe once"
+       redirect_to :back
+    end
+  end
+  
   def new
      @exercise = current_user.exercises.new
   end  
